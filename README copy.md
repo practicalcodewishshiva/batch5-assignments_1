@@ -1,0 +1,1 @@
+The Project is all about Instagram Clone application
