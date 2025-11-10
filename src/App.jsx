@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -6,8 +6,10 @@ import NewInStore from "./Components/NewInStore/NewInStore";
 
 import NavBar from "./Components/NavBar/NavBar";
 import MainDashBoard from "./Components/MainDashBoard/MainDashBoard";
-import { PaymentContext } from "./Components/ContextAPI/PaymentSectionContext";
-import { map } from "echarts/types/src/export/api/util.js";
+import {
+  PaymentContext,
+  UserNameContext,
+} from "./Components/ContextAPI/PaymentSectionContext";
 
 function App() {
   const displayStudentList = [
@@ -226,118 +228,101 @@ function App() {
       rating: 4.6,
     },
   ];
-  console.log(displayStudentList, "displayStudentList");
+  const name = "Niharika";
 
-
-
-    const name = useContext(PaymentContext);
+  const userName = "Steve Jobs";
 
   return (
     <>
-      <PaymentContext.Provider value={name}>
-        <NavBar />
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="pills-home-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-home"
-              type="button"
-              role="tab"
-              aria-controls="pills-home"
-              aria-selected="true"
+      <UserNameContext.Provider value={{ name, userName }}>
+        <PaymentContext.Provider value={{ displayStudentList,userName }}>
+          <NavBar />
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+              >
+                Home
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-profile-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-profile"
+                type="button"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+              >
+                Profile
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-contact-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-contact"
+                type="button"
+                role="tab"
+                aria-controls="pills-contact"
+                aria-selected="false"
+              >
+                Contact
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
             >
-              Home
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="pills-profile-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-profile"
-              type="button"
-              role="tab"
-              aria-controls="pills-profile"
-              aria-selected="false"
+              Shivakumar
+              <MainDashBoard />
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
             >
-              Profile
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="pills-contact-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-contact"
-              type="button"
-              role="tab"
-              aria-controls="pills-contact"
-              aria-selected="false"
+              Niharika
+              <NewInStore />
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-contact"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
             >
-              Contact
-            </button>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="pills-home"
-            role="tabpanel"
-            aria-labelledby="pills-home-tab"
-          >
-            Shivakumar
-            <MainDashBoard />
+              Srikanth
+            </div>
           </div>
-          <div
-            class="tab-pane fade"
-            id="pills-profile"
-            role="tabpanel"
-            aria-labelledby="pills-profile-tab"
-          >
-            Niharika
-            <NewInStore />
-          </div>
-          <div
-            class="tab-pane fade"
-            id="pills-contact"
-            role="tabpanel"
-            aria-labelledby="pills-contact-tab"
-          >
-            Srikanth
-          </div>
-        </div>
-        {/* Elevate Yourself */}
-        Get Your Home Needs New In Store dispaly chedda m aukuntunna
-      </PaymentContext.Provider>
+          Get Your Home Needs New In Store dispaly chedda m aukuntunna
+        </PaymentContext.Provider>
+      </UserNameContext.Provider>
     </>
   );
 }
 
 export default App;
 
+//                   js obj or arrya 
+// Redux Predictable State.         Management Library
 
+// Redux(boilerplate code ).  100 lines 
 
+// --- Redux-toolkit 30 lines 
 
-
-myntra timline 3 months 
-
-
-NIharika myntra login page
-
-Shiva   Myntra payment module 
-
-
-Srikanth Myntra signuppage 
-
-
-Priya.   myntra shopping creation
-
-
-1 
-2 dependency 
-3 tracking 
-
-
-
+// 99.9%

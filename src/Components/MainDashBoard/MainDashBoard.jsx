@@ -1,26 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import "../MainDashBoard/MainDashBoard.css";
 import { arr } from "../../MockData/MockData";
+import { PaymentContext } from "../ContextAPI/PaymentSectionContext";
 
 function MainDashBoard(props) {
   const [responseData, updateResponseData] = useState([]);
   const [error, setError] = useState("");
-  // const {name} = props
-  // console.log("props sendng data from Navbar componnet",userDetails.name, userDetails.location)
 
-  // console.log(props.userDetails.name, props.userDetails.location);
+  const { displayStudentList, userName } = useContext(PaymentContext);
 
-  //button click
-  // function getUserData() {
-  //   const finalData = axios
-  //     .get("https://dummyjson.com/products")
-  //     .then(function (response) {
-  //       debugger;
-  //       updateResponseData(response.data.products);
-  //       console.log(response.data.products);
-  //     });
-  // }
+  console.log("userName", userName);
 
   async function getUserData() {
     try {

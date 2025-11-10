@@ -5,6 +5,9 @@ export default function NewInStore() {
     { name: "Niharika Component", price: 17, button: "add me " },
   
   ];
+
+
+  
   return (
     <div className="row">
         {displayStudentList.map((ele) => {

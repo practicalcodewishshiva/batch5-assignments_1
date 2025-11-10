@@ -1,14 +1,21 @@
 import React from "react";
 import MainDashBoard from "../MainDashBoard/MainDashBoard";
 import Payment from "../Payment/Payment";
+import { useContext } from "react";
+import {
+  PaymentContext,
+  UserNameContext,
+} from "../ContextAPI/PaymentSectionContext";
 
 function NavBar() {
-  const name ="Niharika"
+  const { name,userName } = useContext(UserNameContext);
 
-  PaymentContext
+  const { displayStudentList } = useContext(PaymentContext);
+  console.log(displayStudentList, "displayStudentList");
+  const data = "hello some sample data";
 
 
-  const data = "hello some sample data"
+  console.log("userName in navbar", userName)
   return (
     <div>
       {" "}
@@ -59,20 +66,11 @@ function NavBar() {
         </div>
       </nav>
       <MainDashBoard name={name} data={data} />
-      <Payment name={name}/>
+      <Payment name={name} />
     </div>
   );
 }
 
 export default NavBar;
 
-// react props obj = {
-//     name = "NIharika",
-//     location:"Hydrabad"
-// }
 
-
-
-// context API 
-
-// YOU CAN ASK WHENEVER ITS REQUIRED DATA OR NAME
