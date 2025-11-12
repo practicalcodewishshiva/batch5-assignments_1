@@ -10,6 +10,7 @@ import {
   PaymentContext,
   UserNameContext,
 } from "./Components/ContextAPI/PaymentSectionContext";
+import LoginPage from "./Components/LoginPage/LoginPage";
 
 function App() {
   const displayStudentList = [
@@ -234,7 +235,9 @@ function App() {
 
   return (
     <>
-      <UserNameContext.Provider value={{ name, userName }}>
+
+    <LoginPage/>
+      {/* <UserNameContext.Provider value={{ name, userName }}>
         <PaymentContext.Provider value={{ displayStudentList,userName }}>
           <NavBar />
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -311,7 +314,7 @@ function App() {
           </div>
           Get Your Home Needs New In Store dispaly chedda m aukuntunna
         </PaymentContext.Provider>
-      </UserNameContext.Provider>
+      </UserNameContext.Provider> */}
     </>
   );
 }
